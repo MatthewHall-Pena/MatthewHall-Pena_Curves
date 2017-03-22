@@ -19,8 +19,21 @@
 void add_circle( struct matrix * points, 
 		 double cx, double cy, double cz,
 		 double r, double step ) {
+  double t = 0;
+  double x, y;
+  
+  int even=0;
+  double evencheck=0;
+ for (;t < 2 * M_PI+evencheck;t+=step) {
+    x = cx + r*cos(t);
+    y = cy + r*sin(t);
+    add_point(points, x, y, 0);
+	even+=1;
+	if(t+step> 2 * M_PI+evencheck && even%2!=0){
+		evencheck+=step;
+	}
+  }
 }
-
 /*======== void add_curve() ==========
 Inputs:   struct matrix *points
          double x0
@@ -45,7 +58,29 @@ void add_curve( struct matrix *points,
 		double x2, double y2, 
 		double x3, double y3, 
 		double step, int type ) {
+			double t=0;
+			double t2;
+			double t3;
+			struct matrix *x;
+			struct matrix *y;
+			x=generate_curve_coefs(x0,x1,x2,x3,type);
+			y=generate_curve_coefs(y0,y1,y2,y3,type);
+			
+			int even=0;
+			double evencheck=0;
+			for(;t<1+evencheck;t+=step){
+				t2=t*t;
+				t3=t2*t;
+				add_point(points,x->m[0][0]*t3+x->m[1][0]*t2+x->m[2][0]*t+x->m[3][0], y->m[0][0]*t3+y->m[1][0]*t2+y->m[2][0]*t+y->m[3][0],0);
+				
+				even+=1;
+				if(t+step> 1+evencheck && even%2!=0){
+					evencheck+=step;
+				}
+			}
 }
+
+
 
 
 /*======== void add_point() ==========
