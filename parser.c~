@@ -8,7 +8,9 @@
 #include "draw.h"
 #include "matrix.h"
 #include "parser.h"
-
+#include "matrix.c"
+#include "display.c"
+#include "draw.c"
 
 
 /*======== void parse_file () ==========

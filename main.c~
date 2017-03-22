@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <math.c>
 
 #include "ml6.h"
 #include "display.h"

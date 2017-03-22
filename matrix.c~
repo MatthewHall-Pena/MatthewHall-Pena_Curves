@@ -90,8 +90,8 @@ c->m[0][1]=p2;
 c->m[0][2]=p3;
 c->m[0][3]=p4;
 
-matrix_mult(m,
-  return m;
+matrix_mult(m,c);
+  return c;
 }
 
 
